@@ -3,13 +3,15 @@
 <head>
     <title>Checkpoint 1</title>
     <script>
-        // Check if the user has visited the Link Hub site
-        if (document.referrer !== "https://link-hub.net/620961/key-for-sps") {
+        // Check if the user was redirected from the Link Hub site
+        if (document.referrer === "https://link-hub.net/620961/key-for-sps") {
+            // Redirect to the second Linkteverse site after a delay
+            setTimeout(function() {
+                window.location.href = "https://link-center.net/620961/second-key-check";
+            }, 3000); // Redirect after 3 seconds (adjust as needed)
+        } else {
             // Redirect to an error page or perform any other suitable action
             window.location.href = "https://someguythatsomeone.github.io/keysystem/error.html";
-        } else {
-            // Redirect to the second key check site
-            window.location.href = "https://link-center.net/620961/second-key-check";
         }
     </script>
 </head>
