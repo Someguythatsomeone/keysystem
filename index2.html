@@ -3,13 +3,15 @@
 <head>
     <title>Checkpoint 2</title>
     <script>
-        // Check if the user has visited index.html
-        if (localStorage.getItem('visitedIndex') === null) {
+        // Check if the user has visited the first and third Linkteverse sites
+        if (localStorage.getItem('visitedFirstLinkteverse') && localStorage.getItem('visitedThirdLinkteverse')) {
+            // Redirect to the final Linkteverse site after a delay
+            setTimeout(function() {
+                window.location.href = "https://link-target.net/620961/final-key-check";
+            }, 3000); // Redirect after 3 seconds (adjust as needed)
+        } else {
             // Redirect to an error page or perform any other suitable action
             window.location.href = "https://someguythatsomeone.github.io/keysystem/error.html";
-        } else {
-            // Redirect to the final key check site
-            window.location.href = "https://link-target.net/620961/final-key-check";
         }
     </script>
 </head>
