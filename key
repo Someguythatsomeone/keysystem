@@ -1,1 +1,27 @@
-6AAHVLFtAShLL3jx3Q2KD8JNBkbMhq
+<script>
+    document.getElementById("checkpointForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        fetch("https://your-backend-server.com/submitCheckpoint", { // Replace with your backend server URL
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(response => {
+            // Redirect to the new GitHub repository with checkpoints
+            window.location.href = "https://github.com/your-username/your-checkpoints-repo"; // Replace with your GitHub repository URL
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.getElementById("response").innerText = "Error occurred. Please try again.";
+        });
+    });
+</script>
